@@ -1,0 +1,17 @@
+.header__registration-info {
+    display: flex;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    text-decoration: none;
+}
+
+
+
+@media screen and (max-width: 500px) {
+  .header__registration-info {
+    border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+    flex-direction: column;
+  }
+}

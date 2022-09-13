@@ -1,0 +1,18 @@
+.header__email {
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: #ffffff;
+    margin: 51px 24px 46px 0;
+}
+
+.header__email:hover {
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 500px) {
+  .header__email {
+    margin: 40px auto 0;
+  }
+}

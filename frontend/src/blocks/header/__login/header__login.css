@@ -1,0 +1,19 @@
+.header__login {
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: #A9A9A9;
+    margin: 51px 0 46px 0;
+    text-decoration: none;
+}
+
+.header__login:hover {
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 500px) {
+  .header__login {
+    margin: 18px auto 39px;
+  }
+}

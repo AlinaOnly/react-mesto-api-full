@@ -1,0 +1,7 @@
+.root {
+  background-color: #000000;
+  font-family: 'Inter', 'Helvetica', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
