@@ -73,7 +73,7 @@ class Api {
 }
 
 const api = new Api({
-  url: `https://api.trenikova.nomoredomains.sbs`,
+  url: 'https://api.trenikova.nomoredomains.sbs',
   headers: {
     'Content-Type': 'application/json',
   }
