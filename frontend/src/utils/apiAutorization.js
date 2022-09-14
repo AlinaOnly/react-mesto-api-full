@@ -1,5 +1,5 @@
 
-const url = 'https://api.';
+const url = 'https://api.trenikova.nomoredomains.sbs';
 
 const registration = ({ email, password }) => {
   return fetch(`${url}/signup`, {
