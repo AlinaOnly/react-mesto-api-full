@@ -9,7 +9,8 @@ const registration = ({ email, password }) => {
     },
     body: JSON.stringify({
       email, password
-    })
+    }),
+    credentials: 'include',
   }).then(error);
 };
 
@@ -21,7 +22,8 @@ const autorization = ({ email, password }) => {
     },
     body: JSON.stringify({
       email, password
-    })
+    }),
+    credentials: 'include',
   }).then(error);
 };
 
@@ -31,7 +33,8 @@ const token = (jwt) => {
     headers: {
       'Content-Type': 'application/json',
       'Authorization' : `Bearer ${jwt}`,
-    }
+    },
+    credentials: 'include',
   }).then(error);
 };
 
