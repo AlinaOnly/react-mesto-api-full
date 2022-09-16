@@ -22,14 +22,14 @@ const app = express();
 
 app.use(requestLogger);
 
-app.options('*', cors());
+// app.options(cors());
 app.use(limiter);
 app.use(helmet());
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(router);
-app.use(cors(corsOptions));
+app.use(cors({ corsOptions, credentials: true }));
 
 app.get('/crash-test', () => {
   setTimeout(() => {

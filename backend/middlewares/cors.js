@@ -1,6 +1,8 @@
 const corsList = [
   'http://trenik.nomoredomains.sbs',
   'https://trenik.nomoredomains.sbs',
+  'https://api.trenikova.nomoredomains.sbs',
+  'http://api.trenikova.nomoredomains.sbs',
   'http://localhost:3000',
   'https://localhost:3000'];
 
