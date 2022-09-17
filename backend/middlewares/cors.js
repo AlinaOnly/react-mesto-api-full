@@ -3,8 +3,7 @@ const corsList = [
   'https://trenik.nomoredomains.sbs',
   'https://api.trenikova.nomoredomains.sbs',
   'http://api.trenikova.nomoredomains.sbs',
-  'http://localhost:3000',
-  'https://localhost:3000'];
+  'http://localhost:3000'];
 
 const corsOptions = (req, res, next) => {
   const { origin } = req.headers;
