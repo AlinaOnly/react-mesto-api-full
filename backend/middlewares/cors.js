@@ -1,14 +1,12 @@
 const corsList = [
-  'http://trenik.nomoredomains.sbs',
   'https://trenik.nomoredomains.sbs',
   'https://api.trenikova.nomoredomains.sbs',
-  'http://api.trenikova.nomoredomains.sbs',
   'http://localhost:3000'];
 
 const corsOptions = (req, res, next) => {
   const { origin } = req.headers;
   const { method } = req;
-  const DEFAULT_ALLOWED_METHODS = 'GET, HEAD, PUT, PATCH, POST, DELETE';
+  const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
   const requestHeaders = req.headers['access-control-request-headers'];
 
   if (corsList.includes(origin)) {
