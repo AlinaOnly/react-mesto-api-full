@@ -87,4 +87,6 @@ const api = new Api({
   }
 });
 
+console.log('ti pidor'); // удоли
+
 export default api;
