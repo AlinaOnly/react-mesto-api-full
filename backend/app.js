@@ -7,7 +7,7 @@ const cookieParser = require('cookie-parser');
 const rateLimit = require('express-rate-limit');
 const { errors } = require('celebrate');
 const cors = require('cors');
-const corsOptions = require('./middlewares/cors');
+// const corsOptions = require('./middlewares/cors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const router = require('./routes');
@@ -19,7 +19,15 @@ const limiter = rateLimit({
 
 const { PORT = 3000 } = process.env;
 const app = express();
-app.use(cors(corsOptions));
+app.use(cors({
+  corsList: [
+    'http://trenik.nomoredomains.sbs',
+    'https://trenik.nomoredomains.sbs',
+    'https://api.trenikova.nomoredomains.sbs',
+    'http://api.trenikova.nomoredomains.sbs',
+    'http://localhost:3000'],
+  credentials: true,
+}));
 
 app.use(requestLogger);
 app.use(limiter);
