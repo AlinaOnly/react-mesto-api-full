@@ -13,7 +13,7 @@ class Api {
   }
 
   getInitialCards(token) {
-    return fetch(`${this._url}${'/cards'}`, {
+    return fetch(`${this._url}/cards`, {
       method: 'GET',
       headers: this._headers,
       Authorization: `Bearer ${token}`,
@@ -21,7 +21,7 @@ class Api {
   }
 
   postInitialCards(data, token) {
-    return fetch(`${this._url}${'/cards'}`, {
+    return fetch(`${this._url}/cards`, {
       method: 'POST',
       headers: this._headers,
       Authorization: `Bearer ${token}`,
@@ -30,7 +30,7 @@ class Api {
   }
 
   changeAvatar( {avatar}, token ) {
-    return fetch(`${this._url}${'/users/me/avatar'}`, {
+    return fetch(`${this._url}/users/me/avatar`, {
       method: 'PATCH',
       headers: this._headers,
       Authorization: `Bearer ${token}`,
@@ -39,7 +39,7 @@ class Api {
   }
 
   getInfoUser(token) {
-    return fetch(`${this._url}${'/users/me'}`, {
+    return fetch(`${this._url}/users/me`, {
       method: 'GET',
       headers: this._headers,
       Authorization: `Bearer ${token}`,
@@ -47,7 +47,7 @@ class Api {
   }
 
   editInfoUser( {name, about}, token ) {
-    return fetch(`${this._url}${'/users/me'}`, {
+    return fetch(`${this._url}/users/me`, {
       method: 'PATCH',
       headers: this._headers,
       Authorization: `Bearer ${token}`,
@@ -56,7 +56,7 @@ class Api {
   }
 
   deleteInitialCards(cardId, token) {
-    return fetch(`${this._url}${'/cards/'}${cardId}`, {
+    return fetch(`${this._url}/cards/${cardId}`, {
       method: 'DELETE',
       headers: this._headers,
       Authorization: `Bearer ${token}`,
@@ -64,7 +64,7 @@ class Api {
   }
 
   addLike(cardId, token) {
-    return fetch(`${this._url}${'/cards/likes/'}${cardId}`, {
+    return fetch(`${this._url}/cards/${cardId}/likes`, {
       method: 'PUT',
       headers: this._headers,
       Authorization: `Bearer ${token}`,
@@ -72,7 +72,7 @@ class Api {
   }
 
   deleteLike(cardId, token) {
-    return fetch(`${this._url}${'/cards/likes/'}${cardId}`, {
+    return fetch(`${this._url}/cards/${cardId}/likes`, {
       method: 'DELETE',
       headers: this._headers,
       Authorization: `Bearer ${token}`,
