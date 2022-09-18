@@ -40,7 +40,7 @@ function App() {
   function handleRegister(email, password) {
     apiAutorization.registration( {email, password} )
       .then((res) => {
-        if (res.data) {
+        if (res.email) {
           setRegisterIn(true);
           setIsInfoTooltipPopupOpen(true);
           history.push('/signin');
@@ -48,7 +48,7 @@ function App() {
       }).catch(err => {
         setRegisterIn(false);
         setIsInfoTooltipPopupOpen(true);
-        console.log(err);
+        console.log(`Ошибка register ${err}`);
     });
   }
 
@@ -62,7 +62,7 @@ function App() {
         }
       }).catch(err => {
         setIsInfoTooltipPopupOpen(true);
-        console.log(err);
+        console.log(`Ошибка login ${err}`);
     });
   }
 
@@ -78,13 +78,13 @@ function App() {
       if (jwt) {
         apiAutorization.token(jwt)
         .then(res => {
-          if(res.data) {
-            setEmail(res.data.email);
+          if(res.email) {
+            setEmail(res.email);
             setLogIn(true);
           }
           history.push('/');
         }).catch(err =>
-        console.log(err));
+        console.log(`Ошибка token ${err}`));
       }
   }
 
