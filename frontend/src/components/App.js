@@ -40,7 +40,7 @@ function App() {
   function handleRegister(email, password) {
     apiAutorization.registration( {email, password} )
       .then((res) => {
-        if (res.email) {
+        if (res.data) {
           setRegisterIn(true);
           setIsInfoTooltipPopupOpen(true);
           history.push('/signin');
@@ -78,8 +78,8 @@ function App() {
       if (jwt) {
         apiAutorization.token(jwt)
         .then(res => {
-          if(res.email) {
-            setEmail(res.email);
+          if(res.data) {
+            setEmail(res.data.email);
             setLogIn(true);
           }
           history.push('/');
