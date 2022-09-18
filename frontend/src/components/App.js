@@ -33,17 +33,14 @@ function App() {
   const [registerIn, setRegisterIn] = useState(false);
   const [email, setEmail] = useState(null);
 
-  useEffect(() => {
-    handleTokenCheck();
-  }, []);
 
   function handleRegister(email, password) {
     apiAutorization.registration( {email, password} )
       .then((res) => {
         if (res.email) {
           setRegisterIn(true);
-          setIsInfoTooltipPopupOpen(true);
           history.push('/signin');
+          setIsInfoTooltipPopupOpen(true);
         }
       }).catch(err => {
         setRegisterIn(false);
@@ -73,7 +70,7 @@ function App() {
     history.push('/signin');
   }
 
-  function handleTokenCheck() {
+  const handleTokenCheck = React.useCallback(() => {
     const jwt = localStorage.getItem('jwt');
       if (jwt) {
         apiAutorization.token(jwt)
@@ -85,8 +82,12 @@ function App() {
           }
         }).catch(err =>
         console.log(`Ошибка token ${err}`));
-      } // , [history],
-  }
+      }
+  }, [history]);
+
+  useEffect(() => {
+    handleTokenCheck();
+  }, [handleTokenCheck]);
 
   useEffect(() => {
     if (logIn) {
@@ -94,10 +95,12 @@ function App() {
         .then(([userData, cardData]) => {
           setCurrentUser(userData);
           setCards(cardData);
+          setEmail(userData.email);
+          history.push('/');
         }).catch(err =>
           console.log(err));
     }
-  }, [logIn]);
+  }, [history, logIn]);
 
   function handleCardLike(card) {
     const isLiked = card.likes.some(i => i._id === currentUser._id);
