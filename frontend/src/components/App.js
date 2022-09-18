@@ -81,11 +81,11 @@ function App() {
           if(res.email) {
             setEmail(res.email);
             setLogIn(true);
+            history.push('/');
           }
-          history.push('/');
         }).catch(err =>
         console.log(`Ошибка token ${err}`));
-      }
+      } // , [history],
   }
 
   useEffect(() => {

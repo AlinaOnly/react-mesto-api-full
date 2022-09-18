@@ -27,12 +27,12 @@ const autorization = ({ email, password }) => {
   }).then(error);
 };
 
-const token = (jwt) => {
+const token = (token) => {
   return fetch(`${url}/users/me`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization' : `Bearer ${jwt}`,
+      Authorization : `Bearer ${token}`,
     },
     credentials: 'include',
   }).then(error);
