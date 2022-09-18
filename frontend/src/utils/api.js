@@ -14,9 +14,8 @@ class Api {
 
   getInitialCards() {
     return fetch(`${this._url}${'/cards'}`, {
-     // method: 'GET',
+      method: 'GET',
       headers: this._headers,
-      credentials: 'include',
     }).then(this._setError);
   }
 
@@ -25,7 +24,6 @@ class Api {
       method: 'POST',
       headers: this._headers,
       body: JSON.stringify({name: data.name, link: data.link}),
-      credentials: 'include',
     }).then(this._setError);
   }
 
@@ -34,15 +32,13 @@ class Api {
       method: 'PATCH',
       headers: this._headers,
       body:JSON.stringify({avatar: avatar}),
-      credentials: 'include',
     }).then(this._setError);
   }
 
   getInfoUser() {
     return fetch(`${this._url}${'/users/me'}`, {
-     // method: 'GET',
+      method: 'GET',
       headers: this._headers,
-      credentials: 'include',
     }).then(this._setError);
   }
 
@@ -51,7 +47,6 @@ class Api {
       method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({name: name, about: about}),
-      credentials: 'include',
     }).then(this._setError);
   }
 
@@ -59,7 +54,6 @@ class Api {
     return fetch(`${this._url}${'/cards/'}${cardId}`, {
       method: 'DELETE',
       headers: this._headers,
-      credentials: 'include',
     }).then(this._setError);
   }
 
@@ -67,7 +61,6 @@ class Api {
     return fetch(`${this._url}${'/cards/likes/'}${cardId}`, {
       method: 'PUT',
       headers: this._headers,
-      credentials: 'include',
     }).then(this._setError);
   }
 
@@ -75,7 +68,6 @@ class Api {
     return fetch(`${this._url}${'/cards/likes/'}${cardId}`, {
       method: 'DELETE',
       headers: this._headers,
-      credentials: 'include',
     }).then(this._setError);
   }
 }
@@ -84,6 +76,7 @@ const api = new Api({
   url: 'https://api.trenikova.nomoredomains.sbs',
   headers: {
     'Content-Type': 'application/json',
+    'credentials': 'include',
   }
 });
 
