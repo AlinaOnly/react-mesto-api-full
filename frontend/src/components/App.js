@@ -52,7 +52,9 @@ function App() {
   function handleLogin(email, password) {
     apiAutorization.autorization( {email, password} )
       .then((res) => {
-        if(res.token) {
+        if(res) {
+          setLogIn(true);
+          setEmail(res.email);
           localStorage.setItem('jwt', res.token);
           handleTokenCheck();
           history.push('/');
@@ -75,7 +77,7 @@ function App() {
       if (jwt) {
         apiAutorization.token(jwt)
         .then(res => {
-          if(res.email) {
+          if(res) {
             setEmail(res.email);
             setLogIn(true);
             history.push('/');

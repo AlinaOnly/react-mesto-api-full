@@ -11,7 +11,7 @@ router.post('/signup', createUserValidation, createUser);
 router.use('/users', auth, require('./users'));
 router.use('/cards', auth, require('./cards'));
 
-router.use('/*', auth, () => {
+router.use('*', auth, () => {
   throw new NotFoundError('Нет такой страницы');
 });
 
