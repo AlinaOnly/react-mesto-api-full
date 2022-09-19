@@ -106,7 +106,9 @@ function App() {
 
   function handleCardLike(card) {
     const isLiked = card.likes.some((i) => i === currentUser._id);
-      api.changeLike(card._id, !isLiked).then((newCard) => {
+      api.changeLike(card._id, isLiked).then((newCard) => {
+        //localStorage.setItem('jwt', token);
+        handleTokenCheck();
         setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
       }).catch(err =>
       console.log(err));
@@ -120,6 +122,8 @@ function App() {
   function handleCardDelete(card) {
     api.deleteInitialCards(card._id).then(() => {
       setCards((state) => state.filter((c) => c._id !== card._id));
+      //localStorage.setItem('jwt', res.token);
+      handleTokenCheck();
       closeAllPopups();
     }).catch(err =>
       console.log(err));
