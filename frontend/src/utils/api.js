@@ -70,13 +70,22 @@ class Api {
   }
 
   changeLike(cardId, isLiked) {
-    return fetch(`${this._url}/cards/${cardId}/likes`, {
-      method: isLiked ? 'PUT' : 'DELETE',
-      headers: this._headers,
-      credentials: 'include',
+    if (!isLiked) {
+      return fetch(`${this._url}/cards/${cardId}/likes`, {
+        method: 'PUT',
+        headers: this._headers,
+        credentials: 'include',
       // Authorization: `Bearer ${token}`,
-    }).then(this._setError);
-  }
+      }).then(this._setError);
+    } else {
+      return fetch(`${this._url}/cards/${cardId}/likes`, {
+        method: 'DELETE',
+        headers: this._headers,
+        credentials: 'include',
+      // Authorization: `Bearer ${token}`,
+      }).then(this._setError);
+    }
+  } 
 }
 
 const api = new Api({
