@@ -76,14 +76,14 @@ class Api {
         headers: this._headers,
         credentials: 'include',
       // Authorization: `Bearer ${token}`,
-      }).then(this._setError);
+      }).then(res => this._setError(res));
     } else {
       return fetch(`${this._url}/cards/${cardId}/likes`, {
         method: 'DELETE',
         headers: this._headers,
         credentials: 'include',
       // Authorization: `Bearer ${token}`,
-      }).then(this._setError);
+      }).then(res => this._setError(res));
     }
   }
 }
