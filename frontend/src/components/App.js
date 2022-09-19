@@ -117,9 +117,9 @@ function App() {
     setIsConfirmPopupOpen(true);
   }
 
-  function handleCardDelete(cardId) {
-    api.deleteInitialCards(cardId).then(() => {
-      setCards((state) => state.filter((c) => c._id !== cardId));
+  function handleCardDelete(card) {
+    api.deleteInitialCards(card._id).then(() => {
+      setCards((state) => state.filter((c) => c._id !== card._id));
       closeAllPopups();
     }).catch(err =>
       console.log(err));
