@@ -31,7 +31,6 @@ const Card = new mongoose.Schema({
     default: Date.now,
   },
 }, {
-  collection: 'card',
   versionKey: false,
 });
 

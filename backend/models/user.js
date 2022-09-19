@@ -40,7 +40,6 @@ const userSchema = new mongoose.Schema({
     select: false,
   },
 }, {
-  collection: 'user',
   versionKey: false,
 });
 
