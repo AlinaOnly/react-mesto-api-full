@@ -39,8 +39,8 @@ function App() {
       .then((res) => {
         if (res.email) {
           setRegisterIn(true);
-          history.push('/signin');
           setIsInfoTooltipPopupOpen(true);
+          history.push('/signin');
         }
       }).catch(err => {
         setRegisterIn(false);
