@@ -5,7 +5,7 @@ const ForbiddenError = require('../errors/forbidden-err');
 
 module.exports.getCards = (req, res, next) => {
   Card.find({})
-    .then((cards) => res.send(cards))
+    .then((cards) => res.send(cards.reverse()))
     .catch(next);
 };
 
@@ -43,7 +43,6 @@ module.exports.likeCard = (req, res, next) => {
     { $addToSet: { likes: req.user._id } },
     { new: true },
   )
-    .populate(['owner', 'likes'])
     .orFail(() => new NotFoundError('Карточка с указанным id не найдена'))
     .then((card) => res.send(card))
     .catch(next);

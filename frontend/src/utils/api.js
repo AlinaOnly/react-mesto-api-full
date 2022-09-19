@@ -70,7 +70,7 @@ class Api {
   }
 
   changeLike(cardId, isLiked) {
-    if (!isLiked) {
+    if (isLiked === false) {
       return fetch(`${this._url}/cards/${cardId}/likes`, {
         method: 'PUT',
         headers: this._headers,
