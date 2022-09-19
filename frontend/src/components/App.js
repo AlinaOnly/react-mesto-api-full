@@ -112,6 +112,11 @@ function App() {
       console.log(err));
   }
 
+  function handleTrashButtonClick(card) {
+    setCardDelete(card);
+    setIsConfirmPopupOpen(true);
+  }
+
   function handleCardDelete(card) {
     api.deleteInitialCards(card._id).then(() => {
       setCards((state) => state.filter((item) => item._id !== card._id));
@@ -142,11 +147,6 @@ function App() {
       closeAllPopups();
     }).catch(err =>
       console.log(err));
-  }
-
-  function handleTrashButtonClick(card) {
-    setCardDelete(card);
-    setIsConfirmPopupOpen(true);
   }
 
   function handleEditProfileClick() {
