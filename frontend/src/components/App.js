@@ -45,7 +45,7 @@ function App() {
       }).catch(err => {
         setRegisterIn(false);
         setIsInfoTooltipPopupOpen(true);
-        console.log(`Ошибка register ${err}`);
+        console.log(err);
     });
   }
 
@@ -61,7 +61,7 @@ function App() {
         }
       }).catch(err => {
         setIsInfoTooltipPopupOpen(true);
-        console.log(`Ошибка login ${err}`);
+        console.log(err);
     });
   }
 
@@ -83,7 +83,7 @@ function App() {
             history.push('/');
           }
         }).catch(err =>
-        console.log(`Ошибка token ${err}`));
+        console.log(err));
       }
   }, [history]);
 
@@ -106,17 +106,10 @@ function App() {
 
   function handleCardLike(card) {
     const isLiked = card.likes.some(i => i._id === currentUser._id);
-    if (!isLiked) {
-      api.changeLike(card._id, !isLiked).then((newCard) => {
-        setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
-      }).catch(err =>
-      console.log(err));
-    } else {
       api.changeLike(card._id, isLiked).then((newCard) => {
         setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
       }).catch(err =>
       console.log(err));
-    }
   }
 
   function handleCardDelete(card) {
