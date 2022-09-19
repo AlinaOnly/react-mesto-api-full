@@ -16,6 +16,7 @@ class Api {
     return fetch(`${this._url}/cards`, {
       method: 'GET',
       headers: this._headers,
+      credentials: 'include',
       Authorization: `Bearer ${token}`,
     }).then(this._setError);
   }
@@ -24,6 +25,7 @@ class Api {
     return fetch(`${this._url}/cards`, {
       method: 'POST',
       headers: this._headers,
+      credentials: 'include',
       Authorization: `Bearer ${token}`,
       body: JSON.stringify({name: data.name, link: data.link}),
     }).then(this._setError);
@@ -33,6 +35,7 @@ class Api {
     return fetch(`${this._url}/users/me/avatar`, {
       method: 'PATCH',
       headers: this._headers,
+      credentials: 'include',
       Authorization: `Bearer ${token}`,
       body:JSON.stringify({avatar: avatar}),
     }).then(this._setError);
@@ -42,6 +45,7 @@ class Api {
     return fetch(`${this._url}/users/me`, {
       method: 'GET',
       headers: this._headers,
+      credentials: 'include',
       Authorization: `Bearer ${token}`,
     }).then(this._setError);
   }
@@ -50,6 +54,7 @@ class Api {
     return fetch(`${this._url}/users/me`, {
       method: 'PATCH',
       headers: this._headers,
+      credentials: 'include',
       Authorization: `Bearer ${token}`,
       body: JSON.stringify({name: name, about: about}),
     }).then(this._setError);
@@ -59,6 +64,7 @@ class Api {
     return fetch(`${this._url}/cards/${cardId}`, {
       method: 'DELETE',
       headers: this._headers,
+      credentials: 'include',
       Authorization: `Bearer ${token}`,
     }).then(this._setError);
   }
@@ -67,6 +73,7 @@ class Api {
     return fetch(`${this._url}/cards/${cardId}/likes`, {
       method: 'PUT',
       headers: this._headers,
+      credentials: 'include',
       Authorization: `Bearer ${token}`,
     }).then(this._setError);
   }
@@ -75,6 +82,7 @@ class Api {
     return fetch(`${this._url}/cards/${cardId}/likes`, {
       method: 'DELETE',
       headers: this._headers,
+      credentials: 'include',
       Authorization: `Bearer ${token}`,
     }).then(this._setError);
   }
@@ -84,7 +92,6 @@ const api = new Api({
   url: 'https://api.trenikova.nomoredomains.sbs',
   headers: {
     'Content-Type': 'application/json',
-    credentials: 'include',
   }
 });
 

@@ -7,10 +7,10 @@ const registration = ({ email, password }) => {
     headers: {
       'Content-Type': 'application/json'
     },
+    credentials: 'include',
     body: JSON.stringify({
       email, password
     }),
-    credentials: 'include',
   }).then(error);
 };
 
@@ -20,10 +20,10 @@ const autorization = ({ email, password }) => {
     headers: {
       'Content-Type': 'application/json',
     },
+    credentials: 'include',
     body: JSON.stringify({
       email, password
     }),
-    credentials: 'include',
   }).then(error);
 };
 
