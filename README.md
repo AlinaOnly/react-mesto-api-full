@@ -18,3 +18,5 @@
 [Домен frontend](https://trenik.nomoredomains.sbs)
 
 IP-адрес: 130.193.41.130
+
+ССылка для клонирования репозитория - https://github.com/AlinaOnly/react-mesto-api-full.git
